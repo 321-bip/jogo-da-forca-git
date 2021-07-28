@@ -1,0 +1,136 @@
+body{
+   margin: 10px 50px 20px;
+    background-color:#cfcdfe ;
+    border: solid 1px black;
+}
+h1{
+   display: inline;
+    position: absolute;
+    width: 200px;
+    margin:20px;
+    text-align: center;
+    left:50% ;
+}
+.teclado{
+   display:inline-block;
+   border: solid 1px black;
+   width:268px;
+   height:120px;
+   margin-left: 200px;
+}
+button{
+   width:30px;
+   height:30px
+}
+
+div{
+   
+    display:inline-block;
+    width:195px;
+    height:385px;
+}
+.pontuaçao{
+  display: inline;
+  margin: 0px;
+  font-size: 20px; 
+  padding-left: 500px;
+}
+.vital{
+   display:inline-flex;
+   border:solid 1px black;
+   width:400px;
+   height:10px;
+   margin:30px;
+}
+.barra{
+   width: 100%;
+   height: 100%;
+   background-color: red;
+}
+label{
+   margin-left: 10px 50px 20px;
+   font-size: 20px;
+   height: 22px;
+}
+.palavra{
+   
+   font-size: 30px;
+   height:30px;
+   width:50%;
+   margin-left: 10px;
+  /* margin: 3rem 120px 2em;*/
+  
+}
+
+.palavrasorteada{
+   margin-left: 200px;
+   font-size:30px;
+}
+.dica{
+   display: inline;
+   font-size: 30px;
+}
+.start{
+   width:60px;
+}
+p{
+   display:inline
+}
+.acertos{
+   display:inline;
+   
+}
+.erros{
+   display:inline;
+   
+}
+.img1{
+   margin: 30px;
+   background-image: url("imagem/foto1.jpg");
+   background-repeat:repeat-x;
+   background-size:200px 380px ;
+}
+.img2{
+    margin: 30px;
+    background-image: url("imagem/foto2.jpg");
+    background-repeat:repeat-x;
+    background-size:200px 380px ;
+}
+ .img3{
+    margin: 30px;
+    background-image: url("imagem/foto3.jpg");
+    background-repeat:repeat-x;
+    background-size:200px 380px ;
+}
+ .img4{
+    margin: 30px;
+    background-image: url("imagem/foto4.jpg");
+    background-repeat:repeat-x;
+    background-size:200px 380px ;
+ }
+ .img5{
+    margin: 30px;
+    background-image: url("imagem/foto5.jpg");
+    background-repeat:repeat-x;
+    background-size:200px 380px ;
+ }
+ .img6{
+    margin: 30px;
+    background-image: url("imagem/foto6.jpg");
+    background-repeat:repeat-x;
+    background-size:200px 380px ;
+ }
+ .img7{
+    margin: 30px;
+    background-image: url("imagem/foto7.jpg");
+    background-repeat:repeat-x;
+    background-size:200px 380px ;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+
+
