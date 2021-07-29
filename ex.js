@@ -108,9 +108,7 @@ let pos;
          
 
           start()
-          console.log(pospalavra)
-          console.log(palavra)
-          console.log(listajasorteada)
+         
     } 
 
   function start()
