@@ -17,6 +17,47 @@ let arraypalavrasorteada = []
 let butao = document.getElementsByTagName("button")
 let pos;
 
+ 
+  function start()
+   {  
+
+     for(let i = 0; i < palavra.length; i++)
+        {
+               criatagp = document.createElement('p')
+               criatagp.innerHTML = "-" + "  "
+               palavrasorteada.appendChild(criatagp)
+               criatagp.setAttribute('class','in')
+           let botaostart = document.getElementById("start").disabled = true 
+               botaostart = document.getElementById("start").style.backgroundColor="red"
+        }
+   }
+
+  function sorteo()
+    {
+      let dicas = [fruta,legume]
+      let sorteado = []
+      let posdica = Math.floor(Math.random()*10 / 2)
+      let pospalavra = Math.floor(Math.random()*10)
+      let listajasorteada = []
+     
+          if(posdica <= 2)
+            {
+              sorteado.push(dicas[0])
+              dica.innerText = "fruta"
+
+            }else
+              {
+                sorteado.push(dicas[1])
+                dica.innerText = "legume"
+              }
+          palavra = sorteado[0][pospalavra]
+
+          start()
+          console.log(pospalavra)
+          console.log(palavra)
+          console.log(listajasorteada)
+    } 
+
   function letras(posisao,letras)
     {
      
@@ -30,49 +71,6 @@ let pos;
             
     }
 
-  function sorteo()
-    {
-      let dicas = [fruta,legume]
-      let sorteado = []
-      let posdica = Math.floor(Math.random()*10 / 2)
-      let pospalavra = Math.floor(Math.random()*10)
-      let listajasorteada = []
-      
-
-          if(posdica <= 2)
-            {
-              sorteado.push(dicas[0])
-              dica.innerText = "fruta"
-
-            }else
-              {
-                sorteado.push(dicas[1])
-                dica.innerText = "legume"
-              }
-          palavra = sorteado[0][pospalavra]
-
-         
-
-          start()
-          console.log(pospalavra)
-          console.log(palavra)
-          console.log(listajasorteada)
-    } 
-
-  function start()
-    {  
-
-      for(let i = 0; i < palavra.length; i++)
-        {
-              criatagp = document.createElement('p')
-              criatagp.innerHTML = "-" + "  "
-              palavrasorteada.appendChild(criatagp)
-              criatagp.setAttribute('class','in')
-          let botaostart = document.getElementById("start").disabled = true 
-              botaostart = document.getElementById("start").style.backgroundColor="red"
-        }
-    }
-   
   function jogar()
     {  
           arraypalavrasorteada = []
@@ -113,7 +111,6 @@ let pos;
                 numacertos++
                 acerto()
             }
-        console.log(arraypalavrasorteada)
     }  
    
   function jogoforca()
@@ -137,31 +134,32 @@ let pos;
      
  function reiniciajogo()
    {
-    if(arraypalavrasorteada.length == indicepalavrasorteada || posimg == 7)
-    {
-       let mensagem_fim_de_jogo = arraypalavrasorteada.length == indicepalavrasorteada ? "ganho" : "perdeu"
-        alert(`voce ${mensagem_fim_de_jogo} a palavra sorteada e ${arraypalavrasorteada.join('')}`)
-        botaostart = document.getElementById("start").disabled = false
-        botaostart = document.getElementById("start").style.backgroundColor="white"
-        numacertos = 0
-        numerros = 0
-        posimg = 1
-        vital = 100
-        indicepalavrasorteada = 0
-        jogoforca()
-        erro()
-        acerto()
+      if(arraypalavrasorteada.length == indicepalavrasorteada || posimg == 7)
+       {
+         let mensagem_fim_de_jogo = arraypalavrasorteada.length == indicepalavrasorteada ? "ganho" : "perdeu"
 
-       for(pos = 0; pos <= 26; pos++)
-        {
-          document.getElementsByClassName("alfabeto")[pos].disabled = false
-          letra[pos].style.backgroundColor="white"
-        }
+             alert(`voce ${mensagem_fim_de_jogo} a palavra sorteada e ${arraypalavrasorteada.join('')}`)
+             botaostart = document.getElementById("start").disabled = false
+             botaostart = document.getElementById("start").style.backgroundColor="white"
+             numacertos = 0
+             numerros = 0
+             posimg = 1
+             vital = 100
+             indicepalavrasorteada = 0
+             jogoforca()
+             erro()
+             acerto()
 
-         while(palavrasorteada.firstChild)
-           {
-             palavrasorteada.removeChild(palavrasorteada.firstChild)
-           }
-   } 
+         for(pos = 0; pos <= 26; pos++)
+          {
+            document.getElementsByClassName("alfabeto")[pos].disabled = false
+            letra[pos].style.backgroundColor="white"
+          }
 
-  }
+            while(palavrasorteada.firstChild)
+              {
+                palavrasorteada.removeChild(palavrasorteada.firstChild)
+              }
+       } 
+   }
+   
