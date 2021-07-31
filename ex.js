@@ -156,6 +156,7 @@ let pos;
                 palavrasorteada.removeChild(palavrasorteada.firstChild)
               }
         } 
+        
    }
      
      
