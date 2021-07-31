@@ -17,12 +17,10 @@ let arraypalavrasorteada = []
 let butao = document.getElementsByTagName("button")
 let pos;
 
-   
-
- function letras(posisao,letras)
+  function letras(posisao,letras)
     {
      
-       pos = posisao
+      pos = posisao
       letra[pos].style.backgroundColor="blue"
       alfabeto = letras 
       letrasselecionadas = letra[pos].value
@@ -30,35 +28,6 @@ let pos;
       jogar()
       reiniciajogo()
             
-             
-               
-              /*  }else if(posimg == 7)
-                  {
-                  
-                     alert(`voce perdeu a palavra sorteada e ${arraypalavrasorteada.join('')}`)
-                     botaostart = document.getElementById("start").disabled = false
-                     botaostart = document.getElementById("start").style.backgroundColor="white"
-                     numacertos = 0
-                     numerros = 0
-                     posimg = 1
-                     vital = 100
-                     indicepalavrasorteada = 0
-                     jogoforca()
-                     erro()
-                     acerto()
-
-                   for(pos = 0; pos <= 26; pos++)
-                    {
-                      document.getElementsByClassName("alfabeto")[pos].disabled = false
-                      letra[pos].style.backgroundColor="white"
-                    }
-
-                      while(palavrasorteada.firstChild)
-                        {
-                          palavrasorteada.removeChild(palavrasorteada.firstChild)
-                        }
-                  }*/
-                 
     }
 
   function sorteo()
