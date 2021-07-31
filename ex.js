@@ -80,7 +80,11 @@ let pos;
         }
           let indice = []   
           let idx = arraypalavrasorteada.indexOf(letrasselecionadas)
-            
+           if(idx != -1)
+            {
+              numacertos++
+              acerto()
+
               while(idx != -1)
                 {
                     let indicetagp = document.getElementsByClassName("in")
@@ -95,19 +99,14 @@ let pos;
                  
                 }
 
-                       if(idx == -1)
-                        {
-                  
-                          vital = vital - 16.666
-                          numerros++
-                          posimg++
-                          jogoforca()
-                          erro() 
-                        }else
-                          {
-                            numacertos++
-                            acerto()
-                          }
+            }else
+              {
+                vital = vital - 16.666
+                numerros++
+                posimg++
+                jogoforca()
+                erro() 
+              }              
     }  
    
    function jogoforca()
