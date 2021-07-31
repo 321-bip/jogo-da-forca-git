@@ -18,7 +18,7 @@ let butao = document.getElementsByTagName("button")
 let pos;
 
  
-  function start()
+  function create_tag()
    {  
 
      for(let i = 0; i < palavra.length; i++)
@@ -32,7 +32,7 @@ let pos;
         }
    }
 
-  function sorteo()
+  function sorteo_start()
     {
       let dicas = [fruta,legume]
       let sorteado = []
@@ -52,7 +52,7 @@ let pos;
               }
           palavra = sorteado[0][pospalavra]
 
-          start()
+          create_tag()
           console.log(pospalavra)
           console.log(palavra)
           console.log(listajasorteada)
