@@ -38,7 +38,6 @@ let pos;
       let sorteado = []
       let posdica = Math.floor(Math.random()*10 / 2)
       let pospalavra = Math.floor(Math.random()*10)
-      let listajasorteada = []
      
           if(posdica <= 2)
             {
@@ -50,93 +49,91 @@ let pos;
                 sorteado.push(dicas[1])
                 dica.innerText = "legume"
               }
+
           palavra = sorteado[0][pospalavra]
 
           create_tag()
+          
           console.log(pospalavra)
           console.log(palavra)
-          console.log(listajasorteada)
+       
     } 
 
-  function letras(posisao,letras)
+  function letras(posisao)
     {
-     
       pos = posisao
       letra[pos].style.backgroundColor="blue"
-      alfabeto = letras 
       letrasselecionadas = letra[pos].value
       document.getElementsByClassName("alfabeto")[pos].disabled = true
       jogar()
       reiniciajogo()
-            
     }
 
   function jogar()
     {  
           arraypalavrasorteada = []
-
+           
       for(let i = 0; i < palavra.length; i++)
         {
           let procuraletra = palavra.substr(i,1)
-         
               arraypalavrasorteada.push(procuraletra)
         }
           let indice = []   
           let idx = arraypalavrasorteada.indexOf(letrasselecionadas)
             
-          if(idx == -1)
-          {
-            
-            vital = vital - 16.666
-            numerros++
-            posimg++
-            jogoforca()
-            erro() 
-
-          }else if(idx != -1) 
-            {
               while(idx != -1)
-              {
-                   let indicetagp = document.getElementsByClassName("in")
-                       indice.push(idx)
-                       indicepalavrasorteada++
-                       idx = arraypalavrasorteada.indexOf(letrasselecionadas, idx +1)
+                {
+                    let indicetagp = document.getElementsByClassName("in")
+                        indice.push(idx)
+                        indicepalavrasorteada++
+                        idx = arraypalavrasorteada.indexOf(letrasselecionadas, idx +1)
                     
-                 for(let para in indice)
-                  {
-                    indicetagp[indice[para]].innerHTML = letrasselecionadas
-                  }
+                  for(let para in indice)
+                   {
+                     indicetagp[indice[para]].innerHTML = letrasselecionadas
+                   }
+                 
+                }
+
+                       if(idx == -1)
+                        {
                   
-              }
-                numacertos++
-                acerto()
-            }
+                          vital = vital - 16.666
+                          numerros++
+                          posimg++
+                          jogoforca()
+                          erro() 
+                        }else
+                          {
+                            numacertos++
+                            acerto()
+                          }
     }  
    
-  function jogoforca()
-   {
-    let barra = document.getElementById("barra").style.width = vital + "%"
-    forca.setAttribute("class","img" + posimg)
-   }
-    jogoforca()
+   function jogoforca()
+    {
+     let barra = document.getElementById("barra").style.width = vital + "%"
+     forca.setAttribute("class","img" + posimg)
+    }
+     jogoforca()
 
-  function erro()
-    {
-      let erros = document.getElementById("erros")
+   function erro()
+     {
+       let erros = document.getElementById("erros")
           erros.innerHTML = numerros
-    }
+     }
   
-  function  acerto()
-    {
-      let acertos = document.getElementById("acertos")
+   function  acerto()
+     {
+       let acertos = document.getElementById("acertos")
           acertos.innerHTML = numacertos 
-    }
+     }
      
- function reiniciajogo()
+  function reiniciajogo()
    {
-      if(arraypalavrasorteada.length == indicepalavrasorteada || posimg == 7)
-       {
-         let mensagem_fim_de_jogo = arraypalavrasorteada.length == indicepalavrasorteada ? "ganho" : "perdeu"
+       if(arraypalavrasorteada.length == indicepalavrasorteada || posimg == 7)
+        {
+          let mensagem_fim_de_jogo = arraypalavrasorteada.length == indicepalavrasorteada ? "ganho" : "perdeu"
 
              alert(`voce ${mensagem_fim_de_jogo} a palavra sorteada e ${arraypalavrasorteada.join('')}`)
              botaostart = document.getElementById("start").disabled = false
@@ -149,17 +146,17 @@ let pos;
              jogoforca()
              erro()
              acerto()
+          for(pos = 0; pos <= 26; pos++)
+           {
+             document.getElementsByClassName("alfabeto")[pos].disabled = false
+             letra[pos].style.backgroundColor="white"
+           }
 
-         for(pos = 0; pos <= 26; pos++)
-          {
-            document.getElementsByClassName("alfabeto")[pos].disabled = false
-            letra[pos].style.backgroundColor="white"
-          }
-
-            while(palavrasorteada.firstChild)
+             while(palavrasorteada.firstChild)
               {
                 palavrasorteada.removeChild(palavrasorteada.firstChild)
               }
-       } 
+        } 
    }
-   
+     
+     
