@@ -7,18 +7,25 @@ let vital = 100
 let alfabeto = document.getElementById("alfabeto")
 let letra = document.getElementsByClassName("alfabeto")
 let dica = document.getElementById("dica")
-let letrasselecionadas = ""
+let letrasselecionadas;
 let fruta = ["abacate","abacaxi","açai","amora","cacau","caju","damasco","figo","goiaba","graviola","jabuticaba"]
 let legume = ["abobora","chuchu","pimentao","pepino","abobrinha","quiabo","berinjela","jilo","maxixe","beterraba","ervilha"]
 let palavra;
 let palavrasorteada = document.getElementById("palavra")
 let criatagp;
-let arraypalavrasorteada = []
+let arraypalavrasorteada;
 let butao = document.getElementsByTagName("button")
 let pos;
 
   function jogar()
-    {  
+    {
+
+      arraypalavrasorteada = []
+      for(let i = 0; i < palavra.length; i++)
+      {
+        let procuraletra = palavra.substr(i,1)
+            arraypalavrasorteada.push(procuraletra)
+      }
           let indice = []   
           let idx = arraypalavrasorteada.indexOf(letrasselecionadas)
            if(idx != -1)
@@ -47,7 +54,8 @@ let pos;
                 posimg++
                 jogoforca()
                 erro() 
-              }              
+              }
+              reiniciajogo()         
     }  
     
   function letras(posisao)
@@ -57,7 +65,7 @@ let pos;
       letrasselecionadas = letra[pos].value
       document.getElementsByClassName("alfabeto")[pos].disabled = true
       jogar()
-      reiniciajogo()
+      
     }
 
     function create_tag()
@@ -94,14 +102,6 @@ let pos;
                }
  
            palavra = sorteado[0][pospalavra]
-       
-            for(let i = 0; i < palavra.length; i++)
-             {
-               let procuraletra = palavra.substr(i,1)
-                   arraypalavrasorteada.push(procuraletra)
-             }
- 
-          
            
            console.log(pospalavra)
            console.log(palavra)
