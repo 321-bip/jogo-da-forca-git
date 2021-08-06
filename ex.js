@@ -1,35 +1,27 @@
-let forca = document.getElementById("dv1")
-let numacertos = 0
-let numerros = 0
-let indicepalavrasorteada = 0
-let posimg = 1
-let vital = 100
-let alfabeto = document.getElementById("alfabeto")
-let letra = document.getElementsByClassName("alfabeto")
-let dica = document.getElementById("dica")
-let letrasselecionadas;
-let fruta = ["abacate","abacaxi","açai","amora","cacau","caju","damasco","figo","goiaba","graviola","jabuticaba"]
-let legume = ["abobora","chuchu","pimentao","pepino","abobrinha","quiabo","berinjela","jilo","maxixe","beterraba","ervilha"]
-let palavra;
-let palavrasorteada = document.getElementById("palavra")
-let criatagp;
-let arraypalavrasorteada;
-let butao = document.getElementsByTagName("button")
-let pos;
-let estado = true
-    
+ let butao = document.getElementsByTagName("button")
+ let mensagem = document.getElementById("h1") 
+ let letra = document.getElementsByClassName("alfabeto")
+ let dica = document.getElementById("dica")
+ let palavrasorteada = document.getElementById("palavra")
  
- 
-   
+ let fruta = ["abacate","abacaxi","açai","amora","cacau","caju","damasco","figo","goiaba","graviola","jabuticaba"]
+ let legume = ["abobora","chuchu","pimentao","pepino","abobrinha","quiabo","berinjela","jilo","maxixe","beterraba","ervilha"]
+ let palavra, letrasselecionadas, criatagp, arraypalavrasorteada, pos, reinicia;
+ let numacertos = 0
+ let numerros = 0
+ let indicepalavrasorteada = 0
+ let posimg = 1
+ let vital = 100
+ let estado = true
+
   function jogar()
     {
-
-      arraypalavrasorteada = []
+           arraypalavrasorteada = []
       for(let i = 0; i < palavra.length; i++)
-      {
-        let procuraletra = palavra.substr(i,1)
-            arraypalavrasorteada.push(procuraletra)
-      }
+       {
+         let procuraletra = palavra.substr(i,1)
+             arraypalavrasorteada.push(procuraletra)
+       }
           let indice = []   
           let idx = arraypalavrasorteada.indexOf(letrasselecionadas)
            if(idx != -1)
@@ -59,14 +51,16 @@ let estado = true
                 jogoforca()
                 erro() 
               }
+
               if(arraypalavrasorteada.length == indicepalavrasorteada || posimg == 7)
               {
                 let mensagem_fim_de_jogo = arraypalavrasorteada.length == indicepalavrasorteada ? "ganho" : "perdeu"
-                let mensagem = document.getElementById("h1")    
+                  
                    mensagem.innerHTML = `voce ${mensagem_fim_de_jogo} a palavra sorteada e ${arraypalavrasorteada.join('')}`
                    botaostart = document.getElementById("start").disabled = false
                    botaostart = document.getElementById("start").style.backgroundColor="white"
                    estado = true
+                   reinicia = true
                    broqueio_letras()
               } 
                     
@@ -82,7 +76,7 @@ let estado = true
       
     }
 
-    function create_tag()
+  function create_tag()
     {  
  
       for(let i = 0; i < palavra.length; i++)
@@ -91,7 +85,6 @@ let estado = true
                 criatagp.innerHTML = "-" + "  "
                 palavrasorteada.appendChild(criatagp)
                 criatagp.setAttribute('class','in')
-           
          }
     }
  
@@ -108,30 +101,29 @@ let estado = true
              {
                sorteado.push(dicas[0])
                dica.innerText = "fruta"
- 
+               estado = false
              }else
                {
                  sorteado.push(dicas[1])
-                 dica.innerText = "legume"
+                 dica.innerText = "legume" 
+                 estado = false
                }
                palavra = sorteado[0][pospalavra]
-               estado = false
-             /*  if(estado == false )
+             
+
+               if(reinicia == true)
                    {
+                      estado = false
+                      mensagem.innerHTML = "jogo da forca"
                       reiniciajogo()
-                   }*/
-          
-           
-           
-           
+                   }
            console.log(pospalavra)
            console.log(palavra)
            create_tag()
            broqueio_letras()
-           
     } 
 
-    function broqueio_letras()
+  function broqueio_letras()
    {
       for(let i = 0; i <= 26; i++)
        {
@@ -140,38 +132,35 @@ let estado = true
        }
    }  
    
-   function jogoforca()
+  function jogoforca()
     {
-      
-     let barra = document.getElementById("barra").style.width = vital + "%"
-     forca.setAttribute("class","img" + posimg)
+      let forca = document.getElementById("dv1")
+          forca.setAttribute("class","img" + posimg)
+      let barra = document.getElementById("barra").style.width = vital + "%"
+          
     }
     
 
   function erro()
     {
        let erros = document.getElementById("erros")
-          erros.innerHTML = numerros
+           erros.innerHTML = numerros
     }
   
   function  acerto()
     {
        let acertos = document.getElementById("acertos")
-          acertos.innerHTML = numacertos 
+           acertos.innerHTML = numacertos 
     }
      
   function reiniciajogo()
    {
        if(arraypalavrasorteada.length == indicepalavrasorteada || posimg == 7)
         {
-          let mensagem_fim_de_jogo = arraypalavrasorteada.length == indicepalavrasorteada ? "ganho" : "perdeu"
-          let mensagem = document.getElementById("h1")    
-             mensagem.innerHTML = `voce ${mensagem_fim_de_jogo} a palavra sorteada e ${arraypalavrasorteada.join('')}`
              numacertos = 0
              numerros = 0
              posimg = 1
              vital = 100
-             estado = true
              indicepalavrasorteada = 0
              jogoforca()
              erro()
@@ -183,11 +172,11 @@ let estado = true
                 palavrasorteada.removeChild(palavrasorteada.firstChild)
               }
         } 
-}
+   }
 
- function main()
+  function main()
    {
-    broqueio_letras()
-    jogoforca()
+     broqueio_letras()
+     jogoforca()
    }   
    main()   

@@ -3,6 +3,7 @@ body{
     background-color:#cfcdfe ;
     border: solid 1px black;
 }
+
 h1{
    display: inline;
     position: absolute;
@@ -12,15 +13,20 @@ h1{
     left:50% ;
 }
 .teclado{
+   background-color:cornsilk;
    display:inline-block;
-   border: solid 1px black;
-   width:268px;
-   height:120px;
+   border: solid 1px blue;
+   width:304px;
+   height:160px;
    margin-left: 200px;
+  
 }
 button{
-   width:30px;
-   height:30px
+   border: solid 1px blue;
+   width:40px;
+   height:40px;
+   text-shadow: 0px 0px 0px black;
+   
 }
 
 div{
@@ -58,8 +64,6 @@ label{
    height:30px;
    width:50%;
    margin-left: 10px;
-  /* margin: 3rem 120px 2em;*/
-  
 }
 
 .palavrasorteada{
@@ -71,7 +75,8 @@ label{
    font-size: 30px;
 }
 .start{
-   width:60px;
+   width:40px;
+   
 }
 p{
    display:inline
