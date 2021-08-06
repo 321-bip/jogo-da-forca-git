@@ -1,9 +1,7 @@
- let butao = document.getElementsByTagName("button")
  let mensagem = document.getElementById("h1") 
  let letra = document.getElementsByClassName("alfabeto")
  let dica = document.getElementById("dica")
  let palavrasorteada = document.getElementById("palavra")
- 
  let fruta = ["abacate","abacaxi","açai","amora","cacau","caju","damasco","figo","goiaba","graviola","jabuticaba"]
  let legume = ["abobora","chuchu","pimentao","pepino","abobrinha","quiabo","berinjela","jilo","maxixe","beterraba","ervilha"]
  let palavra, letrasselecionadas, criatagp, arraypalavrasorteada, pos, reinicia;
@@ -55,13 +53,12 @@
               if(arraypalavrasorteada.length == indicepalavrasorteada || posimg == 7)
               {
                 let mensagem_fim_de_jogo = arraypalavrasorteada.length == indicepalavrasorteada ? "ganho" : "perdeu"
-                  
-                   mensagem.innerHTML = `voce ${mensagem_fim_de_jogo} a palavra sorteada e ${arraypalavrasorteada.join('')}`
-                   botaostart = document.getElementById("start").disabled = false
-                   botaostart = document.getElementById("start").style.backgroundColor="white"
-                   estado = true
-                   reinicia = true
-                   broqueio_letras()
+                    mensagem.innerHTML = `voce ${mensagem_fim_de_jogo} a palavra sorteada e ${arraypalavrasorteada.join('')}`
+                let botaostart = document.getElementById("start").disabled = false
+                    botaostart = document.getElementById("start").style.backgroundColor="white"
+                    estado = true
+                    reinicia = true
+                    broqueio_letras()
               } 
                     
     }  
@@ -71,7 +68,7 @@
       pos = posisao
       letra[pos].style.backgroundColor="blue"
       letrasselecionadas = letra[pos].value
-      document.getElementsByClassName("alfabeto")[pos].disabled = true
+      letra[pos].disabled = true
       jogar()
       
     }
