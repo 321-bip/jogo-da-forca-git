@@ -1,4 +1,4 @@
- let mensagem = document.getElementById("h1") 
+ let mensagem = document.getElementById("h1")
  let letra = document.getElementsByClassName("alfabeto")
  let dica = document.getElementById("dica")
  let palavrasorteada = document.getElementById("palavra")
@@ -25,7 +25,7 @@
            if(idx != -1)
             {
               numacertos++
-              acerto()
+              pontuaçao()
 
               while(idx != -1)
                 {
@@ -46,13 +46,14 @@
                 vital = vital - 16.666
                 numerros++
                 posimg++
-                jogoforca()
-                erro() 
+                img_forca()
+                pontuaçao()
               }
 
               if(arraypalavrasorteada.length == indicepalavrasorteada || posimg == 7)
               {
                 let mensagem_fim_de_jogo = arraypalavrasorteada.length == indicepalavrasorteada ? "ganho" : "perdeu"
+                    mensagem.style.color="#f16165"
                     mensagem.innerHTML = `voce ${mensagem_fim_de_jogo} a palavra sorteada e ${arraypalavrasorteada.join('')}`
                 let botaostart = document.getElementById("start").disabled = false
                     botaostart = document.getElementById("start").style.backgroundColor="white"
@@ -92,7 +93,7 @@
        let posdica = Math.floor(Math.random()*10 / 2)
        let pospalavra = Math.floor(Math.random()*10)
        let botaostart = document.getElementById("start").disabled = true 
-           botaostart = document.getElementById("start").style.backgroundColor="#9de1fe"
+           botaostart = document.getElementById("start").style.backgroundColor="#ff8c2a"
       
            if(posdica <= 2)
              {
@@ -112,10 +113,9 @@
                    {
                       estado = false
                       mensagem.innerHTML = "jogo da forca"
-                      reiniciajogo()
+                      reinicia_jogo()
                    }
-           console.log(pospalavra)
-           console.log(palavra)
+           
            create_tag()
            broqueio_letras()
     } 
@@ -125,11 +125,11 @@
       for(let i = 0; i <= 26; i++)
        {
          letra[i].disabled = estado
-         letra[i].style.backgroundColor="#9de1fe"
+         letra[i].style.backgroundColor="#9cd33b"
        }
    }  
    
-  function jogoforca()
+  function img_forca()
     {
       let forca = document.getElementById("dv1")
           forca.setAttribute("class","img" + posimg)
@@ -137,20 +137,15 @@
           
     }
     
-
-  function erro()
+  function pontuaçao()
     {
-       let erros = document.getElementById("erros")
-           erros.innerHTML = numerros
+      let erros = document.getElementById("erros")
+          erros.innerHTML = numerros
+      let acertos = document.getElementById("acertos")
+          acertos.innerHTML = numacertos    
     }
   
-  function  acerto()
-    {
-       let acertos = document.getElementById("acertos")
-           acertos.innerHTML = numacertos 
-    }
-     
-  function reiniciajogo()
+  function reinicia_jogo()
    {
        if(arraypalavrasorteada.length == indicepalavrasorteada || posimg == 7)
         {
@@ -159,9 +154,8 @@
              posimg = 1
              vital = 100
              indicepalavrasorteada = 0
-             jogoforca()
-             erro()
-             acerto()
+             img_forca()
+             pontuaçao()
              broqueio_letras()
 
             while(palavrasorteada.firstChild)
@@ -174,6 +168,7 @@
   function main()
    {
      broqueio_letras()
-     jogoforca()
+     img_forca()
+     pontuaçao()
    }   
    main()   
