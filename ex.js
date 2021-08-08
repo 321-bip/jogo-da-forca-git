@@ -14,7 +14,8 @@
 
   function jogar()
     {
-           arraypalavrasorteada = []
+      arraypalavrasorteada = []
+
       for(let i = 0; i < palavra.length; i++)
        {
          let procuraletra = palavra.substr(i,1)
@@ -126,6 +127,8 @@
        {
          letra[i].disabled = estado
          letra[i].style.backgroundColor="#9cd33b"
+         letra[i].style.fontSize= 30 + "px"
+         letra[i].style.color= "brown"
        }
    }  
    

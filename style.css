@@ -14,19 +14,21 @@ h1{
     font-size: 40px;
 }
 .teclado{
-   background-color:cornsilk;
+   background-color:rgb(17, 20, 1);
    display:inline-block;
-   border: solid 1px black;
-   width:304px;
-   height:160px;
+   border: solid 5px black;
+   width:584px;
+   height:319px;
    margin-left: 250px;
+   border-radius: 20px;
   
 }
 button{
    border: solid 1px black;
-   width:40px;
-   height:40px;
+   width:80px;
+   height:80px;
    text-shadow: 0px 0px 0px black;
+   border-radius: 20px;
    
 }
 
@@ -77,8 +79,10 @@ label{
 
 }
 .start{
-   width:40px;
+   width:80px;
    background-color:#ffba05;
+   font-size: 30px;
+   color:brown
 }
 p{
    display:inline
