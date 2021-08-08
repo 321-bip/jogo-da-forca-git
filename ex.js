@@ -41,13 +41,14 @@
                  
                 }
 
-            }else
-              {
+            }
+           else
+             {
                 vital = vital - 16.666
                 numerros++
                 posimg++
                 img_forca_pontuaçao()
-              }
+             }
 
               if(arraypalavrasorteada.length == indicepalavrasorteada || posimg == 7)
               {
