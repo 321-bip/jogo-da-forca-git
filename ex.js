@@ -4,7 +4,7 @@
  let palavrasorteada = document.getElementById("palavra")
  let fruta = ["abacate","abacaxi","açai","amora","cacau","caju","damasco","figo","goiaba","graviola","jabuticaba"]
  let legume = ["abobora","chuchu","pimentao","pepino","abobrinha","quiabo","berinjela","jilo","maxixe","beterraba","ervilha"]
- let palavra, letrasselecionadas, criatagp, arraypalavrasorteada, pos, reinicia;
+ let palavra, letrasselecionadas, criatagp, arraypalavrasorteada, pos, reinicia, idx;
  let numacertos = 0
  let numerros = 0
  let indicepalavrasorteada = 0
@@ -14,8 +14,7 @@
 
   function jogar()
     {
-      arraypalavrasorteada = []
-
+              arraypalavrasorteada = []
       for(let i = 0; i < palavra.length; i++)
        {
          let procuraletra = palavra.substr(i,1)
@@ -23,36 +22,32 @@
        }
           let indice = []   
           let idx = arraypalavrasorteada.indexOf(letrasselecionadas)
-           if(idx != -1)
-            {
-              numacertos++
-              img_forca_pontuaçao()
-
+          if(idx != -1)
+          {
+            numacertos++ 
+         
               while(idx != -1)
                 {
                   indice.push(idx)
                   indicepalavrasorteada++
                   idx = arraypalavrasorteada.indexOf(letrasselecionadas, idx +1)
-                    
                   for(let para in indice)
                    {
                     let indicetagp = document.getElementsByClassName("in")
                         indicetagp[indice[para]].innerHTML = letrasselecionadas
                    }
-                 
+                  
                 }
-
-            }
-           else
-             {
-                vital = vital - 16.666
-                numerros++
-                posimg++
-                img_forca_pontuaçao()
-             }
-
-              if(arraypalavrasorteada.length == indicepalavrasorteada || posimg == 7)
-              {
+          }    
+          else 
+          {
+              numerros++
+              vital = vital - 16.666
+              posimg++
+             
+          }      
+          if(arraypalavrasorteada.length == indicepalavrasorteada || posimg == 7)
+            {
                 let mensagem_fim_de_jogo = arraypalavrasorteada.length == indicepalavrasorteada ? "ganho" : "perdeu"
                     mensagem.innerHTML = `voce ${mensagem_fim_de_jogo} a palavra sorteada e ${arraypalavrasorteada.join('')}`
                 let botaostart = document.getElementById("start").disabled = false
@@ -60,18 +55,20 @@
                     estado = true
                     reinicia = true
                     broqueio_letras()
-              } 
-                    
-    }  
+            } 
+      console.log(idx)
+      img_forca_pontuaçao() 
+    }   
+            
+             
     
   function letras(posisao)
     {
       pos = posisao
-      letra[pos].style.backgroundColor="blue"
+      letra[pos].style.backgroundColor="#ff8c2a"
       letrasselecionadas = letra[pos].value
       letra[pos].disabled = true
       jogar()
-      
     }
 
   function create_tag()
@@ -117,8 +114,8 @@
                reinicia_jogo()
              }
            console.log(palavra)
-           create_tag()
-           broqueio_letras()
+      create_tag()
+      broqueio_letras()
     } 
 
   function broqueio_letras()
@@ -141,6 +138,8 @@
           erros.innerHTML = numerros
       let acertos = document.getElementById("acertos")
           acertos.innerHTML = numacertos  
+         
+         
     }
     
   function reinicia_jogo()
@@ -161,7 +160,8 @@
               }
         } 
    }
-
+  
+  
   function main()
    {
      broqueio_letras()

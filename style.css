@@ -32,6 +32,10 @@ button{
    
 }
 
+div.alfabeto button:hover{
+ color:bisque
+}
+
 div{
    
     display:inline-block;
