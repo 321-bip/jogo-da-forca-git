@@ -1,7 +1,9 @@
  let mensagem = document.getElementById("h1")
  let letra = document.getElementsByClassName("alfabeto")
  let dica = document.getElementById("dica")
+ let palavra_dica = document.getElementsByClassName("dica")
  let palavrasorteada = document.getElementById("palavra")
+ let botaostart = document.getElementById("start").style.fontSize= 15 + "px" 
  let fruta = ["abacate","abacaxi","açai","amora","cacau","caju","damasco","figo","goiaba","graviola","jabuticaba"]
  let legume = ["abobora","chuchu","pimentao","pepino","abobrinha","quiabo","berinjela","jilo","maxixe","beterraba","ervilha"]
  let palavra, letrasselecionadas, criatagp, arraypalavrasorteada, pos, reinicia, idx;
@@ -89,13 +91,14 @@
        let sorteado = []
        let posdica = Math.floor(Math.random()*10 / 2)
        let pospalavra = Math.floor(Math.random()*10)
-       let botaostart = document.getElementById("start").disabled = true 
+           botaostart = document.getElementById("start").disabled = true 
            botaostart = document.getElementById("start").style.backgroundColor="#ff8c2a"
+        
       
             if(posdica <= 2)
              {
                sorteado.push(dicas[0])
-               dica.innerText = "fruta"
+               dica.innerText ="fruta"
                estado = false
              }
             else
@@ -123,9 +126,9 @@
       for(let i = 0; i <= 26; i++)
        {
          letra[i].disabled = estado
-         letra[i].style.backgroundColor="#9cd33b"
+         letra[i].style.backgroundColor="#051933"
          letra[i].style.fontSize= 30 + "px"
-         letra[i].style.color= "brown"
+         letra[i].style.color= "white"
        }
    }  
    
@@ -135,11 +138,9 @@
           forca.setAttribute("class","img" + posimg)
       let barra = document.getElementById("barra").style.width = vital + "%"
       let erros = document.getElementById("erros")
-          erros.innerHTML = numerros
+          erros.innerHTML = `erros:${numerros}`
       let acertos = document.getElementById("acertos")
-          acertos.innerHTML = numacertos  
-         
-         
+          acertos.innerHTML = `acertos:${numacertos}`
     }
     
   function reinicia_jogo()

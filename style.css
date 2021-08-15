@@ -1,143 +1,200 @@
 body{
-   margin: 10px 50px 20px;
-    background-color:#cfcdfe ;
-    border: solid 1px black;
+  /* height: 100%;
+   width: 100%;*/
+   background-color: #0c2f5e;
+}
+
+
+p{
+   display: inline;
+}
+.dica{
+  display: inline;
+  
+ }
+.palavra{
+   margin-top:225px;
+   position: absolute;
+   left: 50%;
+   transform: translatex(-60%);
+   border: solid 2px rgb(75, 114, 83);
+   width: auto;
+   color: white;
+   background-color:#051933;
+   border-radius: 10px;
+   padding: 5px;
+   
+  
+}
+.dica_{
+   display:inline;   
+font-size: 12pt;
+
+  }
+ .palavra_{
+display:inline;   
+font-size: 12pt;
+padding-left: 1px;
+  
+}
+.acerto{
+display:inline;   
+font-size: 15pt;
+color: white;
+
+}
+ .erro{
+display:inline;   
+font-size: 15pt;
+color: white;
+padding-left: 5px;
+
+} 
+.pontos{
+   margin-top:290px;
+   position: absolute;
+   left: 50%;
+   transform: translatex(-50%);
+   
+}
+
+.img_barra_vital{
+   
+   margin-top:10px;
+   border:solid 1px white;
+   max-width: 400px;
+   min-width: 260px;
+   position: absolute;
+   width: 100%;
+   left: 50%;
+   transform: translateX(-43%);
+   height: 250px;
+   background-color: #cfcdfe ;
+   border-radius: 30px;
+   
+  }
+.conteiner{
+   margin-top: 0px;
+   background-color: rgb(90, 5, 5);
+   border: solid 1px white;
+   border-radius:40px;
+   position: relative;
+   max-width: 400px;
+   min-width: 280px;
+   left: 50%;
+   transform: translatex(-45%);
+   
+}
+#dv1{
+   display:inline-block;
+   width:195px;
+   height:385px;
+   position: absolute;
+}
+.start{
+   color:brown
 }
 
 h1{
-   display: inline;
-    position: absolute;
-    width: 200px;
-    margin:20px;
-    text-align: center;
-    left:50%;
-    font-size: 40px;
+  text-align: center;
+  font-size: 15pt;
+  color:white;
 }
 .teclado{
-   background-color:rgb(17, 20, 1);
    display:inline-block;
-   border: solid 5px black;
-   width:584px;
-   height:319px;
-   margin-left: 250px;
+   max-width: 400px;
+   min-width:319px;
+   width:100%;
+   max-height:319px;
+   height: 319px;
+   height: 100%;
    border-radius: 20px;
-  
+   cursor: pointer;
+   position: absolute;
+   left: 50%;
+   margin-top: 280px;
+   transform: translatex(-43%);
+   padding: 40px;
 }
 button{
-   border: solid 1px black;
-   width:80px;
-   height:80px;
+   border: solid 3px rgb(75, 114, 83);
+   max-width:50px;
+   min-width: 30px;
+   width: 100%;
+   max-height:50px;
+   min-height: 30px;
+   height: 100%;
    text-shadow: 0px 0px 0px black;
-   border-radius: 20px;
-   
+   border-radius: 15px;
+   cursor: pointer;
 }
 
-
-
-div{
-   
-    display:inline-block;
-    width:195px;
-    height:385px;
-}
-.pontuaçao{
-  display: inline;
-  margin: 0px;
-  font-size: 20px; 
-  padding-left: 500px;
-}
 .vital{
    display:inline-flex;
-   border:solid 1px black;
-   width:400px;
-   height:10px;
-   margin:30px;
+   border:solid 1px white;
+   min-width: 300px;
+   max-width:400px;
+   width: 100%;
+   height:15px;
+   position: absolute;
+   bottom: -25px;
+   left: 50%;
+   transform:translatex(-50%);
+   border-radius: 10px;
+  
+  
 }
 .barra{
    width: 100%;
    height: 100%;
    background-color: red;
-}
-label{
-   margin-left: 10px 50px 20px;
-   font-size: 25px;
-   height: 22px;
-}
-.palavra{
+   position: absolute;
+   border-radius: 10px;
    
-   font-size: 30px;
-   height:30px;
-   width:50%;
-   margin-left: 10px;
-}
-
-.palavrasorteada{
-   margin-left: 200px;
-   font-size:30px;
-}
-.dica{
-   display: inline;
-   font-size: 30px;
-
-}
-.start{
-   width:80px;
-   background-color:#ffba05;
-   font-size: 30px;
-   color:brown
-}
-p{
-   display:inline
-}
-.acertos{
-   display:inline;
-   
-}
-.erros{
-   display:inline;
-   
+  
+ 
 }
 .img1{
-   margin: 30px;
+   margin: 10px;
    background-image: url("imagem/foto1.jpg");
    background-repeat:repeat-x;
-   background-size:200px 380px ;
+   background-size:200px 190px ;
 }
 .img2{
-    margin: 30px;
+    margin: 00px;
     background-image: url("imagem/foto2.jpg");
     background-repeat:repeat-x;
-    background-size:200px 380px ;
+    background-size:200px 190px ;
 }
  .img3{
-    margin: 30px;
+    margin: 10px;
     background-image: url("imagem/foto3.jpg");
     background-repeat:repeat-x;
-    background-size:200px 380px ;
+    background-size:200px 190px ;
 }
  .img4{
-    margin: 30px;
+    margin: 10px;
     background-image: url("imagem/foto4.jpg");
     background-repeat:repeat-x;
-    background-size:200px 380px ;
+    background-size:200px 190px ;
  }
  .img5{
-    margin: 30px;
+    margin: 10px;
     background-image: url("imagem/foto5.jpg");
     background-repeat:repeat-x;
-    background-size:200px 380px ;
+    background-size:200px 190px ;
  }
  .img6{
-    margin: 30px;
+    margin: 10px;
     background-image: url("imagem/foto6.jpg");
     background-repeat:repeat-x;
-    background-size:200px 380px ;
+    background-size:200px 190px ;
  }
  .img7{
-    margin: 30px;
+    margin: 10px;
     background-image: url("imagem/foto7.jpg");
     background-repeat:repeat-x;
-    background-size:200px 380px ;
+    background-size:200px 190px ;
  }
  
  
