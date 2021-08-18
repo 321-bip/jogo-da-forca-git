@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
+<div class="caixa">
 <div class="conteiner">     
 <h1 id="h1">Jogo da forca</h1>
 </div>
@@ -22,34 +23,42 @@
    <div id="erros" class="erro" ></div>
 </div> 
 <div class="teclado">
-      <button id="alfabeto" class="alfabeto" onclick="letras(0)" value="q">q</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(1)" value="w">w</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(2)"  value="e">e</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(3)"  value="r">r</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(4)" value="t">t</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(5)" value="y">y</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(6)" value="u">u</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(7)" value="i">i</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(8)" value="o">o</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(9)" value="p">p</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(10)" value="a">a</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(11)" value="s">s</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(12)" value="d">d</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(13)" value="f">f</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(14)" value="g">g</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(15)" value="h">h</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(16)" value="j">j</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(17)" value="k">k</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(18)" value="l">l</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(19)" value="ç">ç</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(20)" value="z">z</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(21)" value="x">x</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(22)" value="c">c</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(23)" value="v">v</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(24)" value="b">b</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(25)" value="n">n</button>
-      <button id="alfabeto" class="alfabeto" onclick="letras(26)" value="m">m</button>
-      <button id="start"    class="start" onclick="sorteo_start()">start</button>
+       <div class="btn">
+          <button id="alfabeto" class="alfabeto" onclick="letras(0)" value="q">q</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(1)" value="w">w</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(2)"  value="e">e</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(3)"  value="r">r</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(4)" value="t">t</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(5)" value="y">y</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(6)" value="u">u</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(7)" value="i">i</button>
+       </div>
+       <div class="btn">
+          <button id="alfabeto" class="alfabeto" onclick="letras(8)" value="o">o</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(9)" value="p">p</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(10)" value="a">a</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(11)" value="s">s</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(12)" value="d">d</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(13)" value="f">f</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(14)" value="g">g</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(15)" value="h">h</button>
+       </div>
+       <div class="btn">
+          <button id="alfabeto" class="alfabeto" onclick="letras(16)" value="j">j</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(17)" value="k">k</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(18)" value="l">l</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(19)" value="ç">ç</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(20)" value="z">z</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(21)" value="x">x</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(22)" value="c">c</button>
+          <button id="alfabeto" class="alfabeto" onclick="letras(23)" value="v">v</button>
+      </div>
+      <div class="btn">
+         <button id="alfabeto" class="alfabeto" onclick="letras(24)" value="b">b</button>
+         <button id="alfabeto" class="alfabeto" onclick="letras(25)" value="n">n</button>
+         <button id="alfabeto" class="alfabeto" onclick="letras(26)" value="m">m</button>
+         <button id="start"    class="start" onclick="sorteo_start()" value="start">start</button>
+      </div>     
 </div class="teclado">
 <div class="palavra">
 <label>dica:
@@ -59,6 +68,7 @@
 <div id="palavra" class="palavra_"></div>
 </label>
 </div>
+</div>    
 <script src="ex.js"></script>
 
 </body>
