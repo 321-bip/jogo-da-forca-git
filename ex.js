@@ -3,7 +3,7 @@
  let dica = document.getElementById("dica")
  let palavra_dica = document.getElementsByClassName("dica")
  let palavrasorteada = document.getElementById("palavra")
- let botaostart = document.getElementById("start").style.fontSize= 15 + "px" 
+ let botaostart = document.getElementById("start")
  let fruta = ["abacate","abacaxi","açai","amora","cacau","caju","damasco","figo","goiaba","graviola","jabuticaba"]
  let legume = ["abobora","chuchu","pimentao","pepino","abobrinha","quiabo","berinjela","jilo","maxixe","beterraba","ervilha"]
  let palavra, letrasselecionadas, criatagp, arraypalavrasorteada, pos, reinicia, idx;
