@@ -126,8 +126,8 @@
       for(let i = 0; i <= 26; i++)
        {
          letra[i].disabled = estado
-         letra[i].style.backgroundColor="#051933"
-         letra[i].style.fontSize= 30 + "px"
+         letra[i].style.backgroundColor="#2065b3"
+        // letra[i].style.fontSize= 20 + "px"
          letra[i].style.color= "white"
        }
    }  
