@@ -1,19 +1,20 @@
 body{
-background-image:linear-gradient(45deg,rgb(31,42,78),rgb(18,120,140),rgb(194,226,235));
+background-image:linear-gradient(250deg,rgb(31,42,78),rgb(18,120,140),rgb(194,226,235));
 }
 .caixa{
-  background-image:linear-gradient(45deg,#062042,rgb(15, 175, 187));
-   border: solid 3px rgb(4, 32, 31);
-   border-radius: 20px;
+   background-image:linear-gradient(305deg,#062042,rgb(15, 175, 187));
+   border:solid 1px rgb(22 22 146 / 61%); 
+   border-radius: 15px;;
+  /* border-image:linear-gradient(365deg, rgb(40, 23, 116)0%,red 100%) 1;*/
    max-width: 500px;
    min-width: 265px;
    max-height: 750px;
-   min-height: 550px;
-   position:fixed;
+   min-height: 525px;
+   position: fixed;
    left: 50%;
    bottom:50%;
    transform:translate(-50%,50%);
-   margin-top: 1px;
+   box-shadow:5px 10px 20px rgba(24, 24, 104, 0.774);
 }
 @media (max-height: 655px) {
    .caixa{
@@ -50,23 +51,23 @@ padding-left: 1px;
 }
 .acerto{
 display:inline;   
-font-size: 10pt;
-color: white;
+font-size: 12pt;
+color: #e4b0b0;
 }
  .erro{
 display:inline;   
-font-size: 10pt;
-color: white;
+font-size: 12pt;
+color: #e4b0b0;
 padding-left: 5px;
 } 
 .pontos{
-   margin-top:290px;
+   margin-top:278px;
    position: fixed;
    left: 50%;
    transform: translatex(-50%);
 }
 .img_barra_vital{
-   margin-top:10px;
+   margin-top:5px;
    border: solid 1px rgb(4, 32, 31);
    width: 95%;
    position: absolute;
@@ -77,17 +78,18 @@ padding-left: 5px;
    border-radius: 15px;
 }
 .conteiner{
-   background-image:linear-gradient(to left,rgb(7, 141, 141),#0c2f5e);
-   border: solid 2px rgb(4, 32, 31);
-   margin-top: 5px;
+   background-image:linear-gradient(342deg,rgb(7, 141, 141),#0c2f5e);
+   border:solid 2px rgb(22 22 146 / 61%); 
+   margin-top: 2px;
    background-color: rgb(90, 5, 5);
-   border-radius:40px;
+   border-radius:10px;
    position: relative;
    min-width: 120px;
    width: 95%;
-   max-height: 50px;
+   height: 50px;
    left: 50%;
    transform: translatex(-50%);
+   box-shadow:5px 10px 20px rgba(24, 24, 104, 0.774);
  
 }
 #dv1{
@@ -105,13 +107,13 @@ padding-left: 5px;
    font-size: 15pt;
    cursor: pointer;
    background-color: rgb(32, 101, 179);
-   color: white;
+   color: #e4b0b0;
 }
 h1{
   
   text-align: center;
   font-size: 12pt;
-  color:rgb(229, 229, 240);
+  color:#e4b0b0;
 }
 .teclado{
    display:block;
@@ -121,7 +123,7 @@ h1{
    cursor: pointer;
    position:fixed;
    left: 50%;
-   margin-top: 320px;
+   margin-top: 300px;
    transform: translatex(-48%);
 }
 button{
@@ -133,6 +135,8 @@ button{
    font-size: 15pt;
    cursor: pointer;
    background-color: rgb(32, 101, 179);
+   color: #e4b0b0;
+   padding: 5px;
 }
 .btn{
    display: inline;
@@ -145,7 +149,7 @@ button{
    width: 100%;
    height:15px;
    position: absolute;
-   bottom: -25px;
+   bottom: -21px;
    left: 50%;
    transform:translatex(-50%);
    border-radius: 10px;

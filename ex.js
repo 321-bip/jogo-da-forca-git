@@ -53,7 +53,7 @@
                 let mensagem_fim_de_jogo = arraypalavrasorteada.length == indicepalavrasorteada ? "ganho" : "perdeu"
                     mensagem.innerHTML = `voce ${mensagem_fim_de_jogo} a palavra sorteada e ${arraypalavrasorteada.join('')}`
                 let botaostart = document.getElementById("start").disabled = false
-                    botaostart = document.getElementById("start").style.backgroundColor="white"
+                    botaostart = document.getElementById("start").style.backgroundColor="#2065b3"
                     estado = true
                     reinicia = true
                     broqueio_letras()
@@ -127,8 +127,6 @@
        {
          letra[i].disabled = estado
          letra[i].style.backgroundColor="#2065b3"
-        // letra[i].style.fontSize= 20 + "px"
-         letra[i].style.color= "white"
        }
    }  
    
