@@ -94,33 +94,33 @@
            botaostart = document.getElementById("start").disabled = true 
            botaostart = document.getElementById("start").style.backgroundColor="#ff8c2a"
         
-      
-            if(posdica <= 2)
-             {
-               sorteado.push(dicas[0])
-               dica.innerText ="fruta"
-               estado = false
-             }
-            else
-             {
-                sorteado.push(dicas[1])
-                dica.innerText = "legume" 
-                estado = false
-             }
-             
-               palavra = sorteado[0][pospalavra]
-             
-            if(reinicia == true)
-             {
-               estado = false
-               mensagem.innerHTML = "jogo da forca"
-               reinicia_jogo()
-             }
-           console.log(palavra)
-      create_tag()
-      broqueio_letras()
-    } 
-
+       
+           if(posdica <= 2)
+           {
+             sorteado.push(dicas[0])
+             dica.innerText ="fruta"
+             estado = false
+           }
+          else
+           {
+              sorteado.push(dicas[1])
+              dica.innerText = "legume" 
+              estado = false
+           }
+           
+             palavra = sorteado[0][pospalavra]
+           
+          if(reinicia == true)
+           {
+             estado = false
+             mensagem.innerHTML = "jogo da forca"
+             reinicia_jogo()
+           }
+         console.log(palavra)
+    create_tag()
+    broqueio_letras()
+  } 
+     
   function broqueio_letras()
    {
       for(let i = 0; i <= 26; i++)
