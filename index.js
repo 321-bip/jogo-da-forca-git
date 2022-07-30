@@ -1,9 +1,3 @@
-// funsao retorna um array com minha node list
-function getNodeLIst() {
-  const elems = document.querySelectorAll(".alfabeto");
-  const arrayFromList = [].map.call(elems, (element) => element);
-  return { arrayFromList };
-}
 // funsao que retorna lista de array
 function returnArray() {
   const fruit = [
@@ -36,13 +30,11 @@ function returnArray() {
   const listArray = [fruit, vegetables];
   return { listArray };
 }
-
 // sortea a dica da palavra
 function drawTip() {
   const { listArray } = returnArray();
   const tipPosition = Math.floor((Math.random() * 4) / 2);
   writeHintOnScreen(tipPosition);
-  //console.log(listArray[tipPosition]);
   return listArray[tipPosition];
 }
 // escreve dica na tela
@@ -57,6 +49,7 @@ function drawWord() {
   const wordPosition = Math.floor(Math.random() * 10);
   const word = listDraw[wordPosition];
   createTagHtml(word);
+  console.log(word);
   return { word };
 }
 // cria tags p
@@ -78,41 +71,101 @@ function deleteTagP() {
     elementWordDraw.removeChild(elementWordDraw.firstChild);
   }
 }
-// capitura o caracter clicado
-function getValue() {
-  const { arrayFromList } = getNodeLIst();
-  const character = arrayFromList.map((element) => element.value);
-  console.log(character);
+// escre a letras na tela
+function writeCharacter(character, index) {
+  const createTagP = document.getElementsByTagName("p");
+  createTagP[index].innerHTML = character.value;
 }
-
-// verifiva se esiste o caracter na palavra sorteada
-function checkCharacter() {
-  const { word } = drawWord();
-
-  console.log(word);
+// decrementa barra de vital na tela
+const decreaseLifeBar = (() => {
+  let life = 100;
+  return () => {
+    life -= 16.666;
+    const barra = document.getElementById("barra");
+    barra.style.width = life + "%";
+  };
+})();
+//renderiza imagem da forca
+function renderStrengthOnScreen() {
+  const score = initScore();
+  let forca = document.getElementById("dv1");
+  forca.setAttribute("class", "img" + score.scoreMistake);
 }
-
-// escrever letra na tela
-
+//inicia a pontuçao
+const initScore = (() => {
+  const score = {
+    scoreMistake: 0,
+    scoreHit: 0,
+  };
+  return () => {
+    return score;
+  };
+})();
+// encrementa pontuaçao
+function incrementScore(indexCharacter) {
+  const score = initScore();
+  if (indexCharacter != -1 && indexCharacter != undefined) {
+    score.scoreHit++;
+  } else if (indexCharacter === -1) {
+    score.scoreMistake++;
+    decreaseLifeBar();
+    renderStrengthOnScreen();
+  }
+  return { score };
+}
+// escreve a pontuaçao na tela
+function writeScore() {
+  let { score } = incrementScore();
+  console.log(score.scoreHit);
+  const mistake = document.getElementById("erro");
+  const hit = document.getElementById("acerto");
+  mistake.innerHTML = `erro: ${score.scoreMistake}`;
+  hit.innerHTML = `acerto:${score.scoreHit}`;
+}
+function unlockButton() {
+  const elementButton = document.querySelectorAll("button");
+  elementButton.forEach((element) => {
+    element.disabled = false;
+    element.style.background = "rgb(32, 101, 179)";
+  });
+}
 // funsao de eventos
 function events() {
-  const { arrayFromList } = getNodeLIst();
-
-  arrayFromList.forEach((element) => {
-    element.addEventListener("click", () => {
-      getValue();
-    });
-  });
-
   const botaostart = document.getElementById("start");
   botaostart.addEventListener("click", () => {
     checkCharacter();
-    // drawWord();
   });
+  // verifica se o caracter clicado e existe
+  const checkCharacter = () => {
+    const elems = document.querySelectorAll(".alfabeto");
+    let { word } = drawWord();
+    elems.forEach((element) => {
+      element.addEventListener("click", () => {
+        let indexCharacter = word.indexOf(element.value);
+        incrementScore(indexCharacter);
+        writeScore();
+        while (indexCharacter != -1) {
+          writeCharacter(element, indexCharacter);
+          indexCharacter = word.indexOf(element.value, indexCharacter + 1);
+        }
+      });
+    });
+  };
+  const buttonLock = (() => {
+    const elementButton = document.querySelectorAll("button");
+    elementButton.forEach((element) => {
+      element.addEventListener("click", () => {
+        element.style.background = "#ff8c2a";
+        element.disabled = true;
+      });
+    });
+  })();
 }
-
 // funsao prinsipal
 function main() {
   events();
+  writeScore();
+  renderStrengthOnScreen();
 }
 main();
+//debugger;

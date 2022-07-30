@@ -156,43 +156,43 @@ button{
    position: absolute;
    border-radius: 10px;
 }
-.img1{
+.img0{
    margin: 10px;
    background-image: url("imagem/foto1.jpg");
    background-repeat:repeat-x;
    background-size:200px 190px ;
 }
-.img2{
+.img1{
     margin: 00px;
     background-image: url("imagem/foto2.jpg");
     background-repeat:repeat-x;
     background-size:200px 190px ;
 }
- .img3{
+ .img2{
     margin: 10px;
     background-image: url("imagem/foto3.jpg");
     background-repeat:repeat-x;
     background-size:200px 190px ;
 }
- .img4{
+ .img3{
     margin: 10px;
     background-image: url("imagem/foto4.jpg");
     background-repeat:repeat-x;
     background-size:200px 190px ;
  }
- .img5{
+ .img4{
     margin: 10px;
     background-image: url("imagem/foto5.jpg");
     background-repeat:repeat-x;
     background-size:200px 150px ;
  }
- .img6{
+ .img5{
     margin: 10px;
     background-image: url("imagem/foto6.jpg");
     background-repeat:repeat-x;
     background-size:200px 190px ;
  }
- .img7{
+ .img6{
     margin: 10px;
     background-image: url("imagem/foto7.jpg");
     background-repeat:repeat-x;
