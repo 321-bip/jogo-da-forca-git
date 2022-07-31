@@ -3,10 +3,10 @@ function returnArray() {
   const fruit = [
     "abacate",
     "abacaxi",
-    "açai",
     "amora",
     "cacau",
     "caju",
+    "açai",
     "damasco",
     "figo",
     "goiaba",
@@ -49,7 +49,6 @@ function drawWord() {
   const wordPosition = Math.floor(Math.random() * 10);
   const word = listDraw[wordPosition];
   createTagHtml(word);
-  console.log(word);
   return { word };
 }
 // cria tags p
@@ -63,15 +62,7 @@ function createTagHtml(word) {
     createTagP.setAttribute("class", "in");
   }
 }
-//deleta tags p
-function deleteTagP() {
-  const elementWordDraw = document.getElementById("palavra");
-
-  while (elementWordDraw.firstChild) {
-    elementWordDraw.removeChild(elementWordDraw.firstChild);
-  }
-}
-// escre a letras na tela
+/// escreve a letras na tela
 function writeCharacter(character, index) {
   const createTagP = document.getElementsByTagName("p");
   createTagP[index].innerHTML = character.value;
@@ -129,38 +120,45 @@ function unlockButton() {
     element.style.background = "rgb(32, 101, 179)";
   });
 }
+
 // funsao de eventos
 function events() {
   const botaostart = document.getElementById("start");
   botaostart.addEventListener("click", () => {
-    checkCharacter();
-  });
-  // verifica se o caracter clicado e existe
-  const checkCharacter = () => {
-    const elems = document.querySelectorAll(".alfabeto");
+    botaostart.disabled = true;
+    botaostart.style.background = "#ff8c2a";
     let { word } = drawWord();
+    selectCharacter(word);
+  });
+
+  const selectCharacter = (word) => {
+    const elems = document.querySelectorAll(".alfabeto");
+    //  buttonLock();
     elems.forEach((element) => {
-      element.addEventListener("click", () => {
-        let indexCharacter = word.indexOf(element.value);
-        incrementScore(indexCharacter);
-        writeScore();
-        while (indexCharacter != -1) {
-          writeCharacter(element, indexCharacter);
-          indexCharacter = word.indexOf(element.value, indexCharacter + 1);
-        }
-      });
-    });
-  };
-  const buttonLock = (() => {
-    const elementButton = document.querySelectorAll("button");
-    elementButton.forEach((element) => {
       element.addEventListener("click", () => {
         element.style.background = "#ff8c2a";
         element.disabled = true;
+        checkCharacter(element, word);
       });
     });
-  })();
+  };
+
+  const buttonReset = document.getElementById("reset");
+  buttonReset.addEventListener("click", () => {
+    location.reload();
+  });
 }
+// verifica se o caracter clicado e existe
+function checkCharacter(element, word) {
+  let indexCharacter = word.indexOf(element.value);
+  incrementScore(indexCharacter);
+  writeScore();
+  while (indexCharacter != -1) {
+    writeCharacter(element, indexCharacter);
+    indexCharacter = word.indexOf(element.value, indexCharacter + 1);
+  }
+}
+
 // funsao prinsipal
 function main() {
   events();

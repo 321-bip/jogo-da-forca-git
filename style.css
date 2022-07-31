@@ -95,12 +95,23 @@ padding-left: 5px;
    position: absolute;
 }
 .start{
-   width:32% ;
+   width:23.5% ;
    max-height: 40%;
    height: 3ch;
    border: solid 1px black;
    border-radius: 10px;
-   font-size: 15pt;
+   font-size: 14pt;
+   cursor: pointer;
+   background-color: rgb(32, 101, 179);
+   color: #e4b0b0;
+}
+ .reset{
+   width:23.5% ;
+   max-height: 40%;
+   height: 3ch;
+   border: solid 1px black;
+   border-radius: 10px;
+   font-size: 14pt;
    cursor: pointer;
    background-color: rgb(32, 101, 179);
    color: #e4b0b0;
