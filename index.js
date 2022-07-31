@@ -1,4 +1,35 @@
-// funsao que retorna lista de array
+function initGame() {
+  const botaostart = document.getElementById("start");
+
+  botaostart.addEventListener("click", () => {
+    let { word } = drawWord();
+    buttonLockClick(botaostart);
+    createTagHtml(word);
+    selectCharacter(word);
+  });
+
+  const selectCharacter = (word) => {
+    const elems = document.querySelectorAll(".alfabeto");
+
+    elems.forEach((element) => {
+      element.addEventListener("click", () => {
+        buttonLockClick(element);
+        checkCharacter(element, word);
+        EndOfTheGame(word);
+      });
+    });
+  };
+
+  const buttonReset = document.getElementById("reset");
+
+  buttonReset.addEventListener("click", () => {
+    location.reload();
+  });
+
+  writeScore();
+  renderStrengthOnScreen();
+}
+
 function returnArray() {
   const fruit = [
     "abacate",
@@ -30,28 +61,27 @@ function returnArray() {
   const listArray = [fruit, vegetables];
   return { listArray };
 }
-// sortea a dica da palavra
+
 function drawTip() {
   const { listArray } = returnArray();
   const tipPosition = Math.floor((Math.random() * 4) / 2);
   writeHintOnScreen(tipPosition);
   return listArray[tipPosition];
 }
-// escreve dica na tela
+
 function writeHintOnScreen(position) {
   const elemtWordTip = document.getElementById("dica");
   let wordtip = position == 0 ? "Fruta" : "vegetal";
   elemtWordTip.innerHTML = wordtip;
 }
-// sortea a palavra
+
 function drawWord() {
   const listDraw = drawTip();
   const wordPosition = Math.floor(Math.random() * 10);
   const word = listDraw[wordPosition];
-  createTagHtml(word);
   return { word };
 }
-// cria tags p
+
 function createTagHtml(word) {
   const elementWordDraw = document.getElementById("palavra");
 
@@ -62,27 +92,27 @@ function createTagHtml(word) {
     createTagP.setAttribute("class", "in");
   }
 }
-/// escreve a letras na tela
+
 function writeCharacter(character, index) {
   const createTagP = document.getElementsByTagName("p");
   createTagP[index].innerHTML = character.value;
 }
-// decrementa barra de vital na tela
-const decreaseLifeBar = () => {
+
+const decreaseLifeBar = (() => {
   let life = 100;
   return () => {
     life -= 16.666;
     const bar = document.getElementById("barra");
     bar.style.width = life + "%";
   };
-};
-//renderiza imagem da forca
+})();
+
 function renderStrengthOnScreen() {
   const score = initScore();
   let gallows = document.getElementById("dv1");
   gallows.setAttribute("class", "img" + score.scoreMistake);
 }
-//inicia a pontuçao
+
 const initScore = (() => {
   const score = {
     scoreMistake: 0,
@@ -92,7 +122,7 @@ const initScore = (() => {
     return score;
   };
 })();
-// encrementa pontuaçao
+
 function incrementScore(indexCharacter) {
   const score = initScore();
   if (indexCharacter != -1 && indexCharacter != undefined) {
@@ -104,7 +134,7 @@ function incrementScore(indexCharacter) {
   }
   return { score };
 }
-// escreve a pontuaçao na tela
+
 function writeScore() {
   let { score } = incrementScore();
   const mistake = document.getElementById("erro");
@@ -112,10 +142,9 @@ function writeScore() {
   mistake.innerHTML = `erro: ${score.scoreMistake}`;
   hit.innerHTML = `acerto:${score.scoreHit}`;
 }
-// verifica se o caracter clicado e existe
+
 function checkCharacter(element, word) {
   let indexCharacter = word.indexOf(element.value);
-  // console.log(indexCharacter);
   if (indexCharacter == -1) {
     incrementScore(indexCharacter);
     writeScore();
@@ -127,7 +156,7 @@ function checkCharacter(element, word) {
     indexCharacter = word.indexOf(element.value, indexCharacter + 1);
   }
 }
-// finalisa o jogo
+
 function EndOfTheGame(word) {
   const { score } = incrementScore();
   const message = document.getElementById("h1");
@@ -140,42 +169,17 @@ function EndOfTheGame(word) {
     buttonLock();
   }
 }
-// bloqueia os botoes de caracter no fim do jogo
+
+function buttonLockClick(element) {
+  element.disabled = true;
+  element.style.background = "#ff8c2a";
+}
+
 function buttonLock() {
   const elems = document.querySelectorAll(".alfabeto");
   elems.forEach((element) => {
     element.disabled = true;
   });
 }
-// funsao de eventos
-function initGame() {
-  // inicia o jogo
-  const botaostart = document.getElementById("start");
-  botaostart.addEventListener("click", () => {
-    botaostart.disabled = true;
-    botaostart.style.background = "#ff8c2a";
-    let { word } = drawWord();
-    selectCharacter(word);
-  });
-  // seleciona um caracter
-  const selectCharacter = (word) => {
-    const elems = document.querySelectorAll(".alfabeto");
-    elems.forEach((element) => {
-      element.addEventListener("click", () => {
-        element.style.background = "#ff8c2a";
-        element.disabled = true;
-        checkCharacter(element, word);
-        EndOfTheGame(word);
-      });
-    });
-  };
-  //reinicia o jogo
-  const buttonReset = document.getElementById("reset");
-  buttonReset.addEventListener("click", () => {
-    location.reload();
-  });
 
-  writeScore();
-  renderStrengthOnScreen();
-}
 initGame();
