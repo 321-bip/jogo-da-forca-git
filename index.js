@@ -68,19 +68,19 @@ function writeCharacter(character, index) {
   createTagP[index].innerHTML = character.value;
 }
 // decrementa barra de vital na tela
-const decreaseLifeBar = (() => {
+const decreaseLifeBar = () => {
   let life = 100;
   return () => {
     life -= 16.666;
-    const barra = document.getElementById("barra");
-    barra.style.width = life + "%";
+    const bar = document.getElementById("barra");
+    bar.style.width = life + "%";
   };
-})();
+};
 //renderiza imagem da forca
 function renderStrengthOnScreen() {
   const score = initScore();
-  let forca = document.getElementById("dv1");
-  forca.setAttribute("class", "img" + score.scoreMistake);
+  let gallows = document.getElementById("dv1");
+  gallows.setAttribute("class", "img" + score.scoreMistake);
 }
 //inicia a pontuçao
 const initScore = (() => {
@@ -107,22 +107,49 @@ function incrementScore(indexCharacter) {
 // escreve a pontuaçao na tela
 function writeScore() {
   let { score } = incrementScore();
-  console.log(score.scoreHit);
   const mistake = document.getElementById("erro");
   const hit = document.getElementById("acerto");
   mistake.innerHTML = `erro: ${score.scoreMistake}`;
   hit.innerHTML = `acerto:${score.scoreHit}`;
 }
-function unlockButton() {
-  const elementButton = document.querySelectorAll("button");
-  elementButton.forEach((element) => {
-    element.disabled = false;
-    element.style.background = "rgb(32, 101, 179)";
+// verifica se o caracter clicado e existe
+function checkCharacter(element, word) {
+  let indexCharacter = word.indexOf(element.value);
+  // console.log(indexCharacter);
+  if (indexCharacter == -1) {
+    incrementScore(indexCharacter);
+    writeScore();
+  }
+  while (indexCharacter != -1) {
+    incrementScore(indexCharacter);
+    writeScore();
+    writeCharacter(element, indexCharacter);
+    indexCharacter = word.indexOf(element.value, indexCharacter + 1);
+  }
+}
+// finalisa o jogo
+function EndOfTheGame(word) {
+  const { score } = incrementScore();
+  const message = document.getElementById("h1");
+
+  if (score.scoreHit == word.length) {
+    message.innerHTML = `Voce acertou a palavra e ${word}`;
+    buttonLock();
+  } else if (score.scoreMistake == 6) {
+    message.innerHTML = `Voce errou a palavra era ${word}`;
+    buttonLock();
+  }
+}
+// bloqueia os botoes de caracter no fim do jogo
+function buttonLock() {
+  const elems = document.querySelectorAll(".alfabeto");
+  elems.forEach((element) => {
+    element.disabled = true;
   });
 }
-
 // funsao de eventos
-function events() {
+function initGame() {
+  // inicia o jogo
   const botaostart = document.getElementById("start");
   botaostart.addEventListener("click", () => {
     botaostart.disabled = true;
@@ -130,40 +157,25 @@ function events() {
     let { word } = drawWord();
     selectCharacter(word);
   });
-
+  // seleciona um caracter
   const selectCharacter = (word) => {
     const elems = document.querySelectorAll(".alfabeto");
-    //  buttonLock();
     elems.forEach((element) => {
       element.addEventListener("click", () => {
         element.style.background = "#ff8c2a";
         element.disabled = true;
         checkCharacter(element, word);
+        EndOfTheGame(word);
       });
     });
   };
-
+  //reinicia o jogo
   const buttonReset = document.getElementById("reset");
   buttonReset.addEventListener("click", () => {
     location.reload();
   });
-}
-// verifica se o caracter clicado e existe
-function checkCharacter(element, word) {
-  let indexCharacter = word.indexOf(element.value);
-  incrementScore(indexCharacter);
-  writeScore();
-  while (indexCharacter != -1) {
-    writeCharacter(element, indexCharacter);
-    indexCharacter = word.indexOf(element.value, indexCharacter + 1);
-  }
-}
 
-// funsao prinsipal
-function main() {
-  events();
   writeScore();
   renderStrengthOnScreen();
 }
-main();
-//debugger;
+initGame();
