@@ -181,8 +181,5 @@ function buttonLock() {
     element.disabled = true;
   });
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> refatorando
 initGame();
