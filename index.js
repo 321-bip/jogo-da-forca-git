@@ -1,3 +1,4 @@
+//http://alexmods.com/down/gbwhatsapp-pro
 function initGame() {
   const botaostart = document.getElementById("start");
 
